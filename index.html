@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hormone Production Artifact</title>
+    <style>
+        :root {
+            --primary-pink: #ff2d85;
+            --bg-dark: #120108;
+            --card-bg: #1f0411;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #stage {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 45, 133, 0.4);
+            text-align: center;
+            border: 1px solid rgba(255, 45, 133, 0.2);
+        }
+        h2 { color: var(--primary-pink); text-transform: uppercase; letter-spacing: 2px; }
+        #instruction { font-size: 1.2rem; line-height: 1.6; margin: 30px 0; min-height: 120px; color: #ffcae1; }
+        .controls { display: flex; flex-direction: column; gap: 15px; }
+        button {
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        button:hover { background: #ff5da1; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 45, 133, 0.4); }
+        .status { font-size: 0.8rem; color: #664455; margin-top: 20px; text-transform: uppercase; }
+        .code-display { font-family: monospace; color: #00ffcc; font-size: 1.4rem; display: none; margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+<div id="stage">
+    <h2 id="phase-title">Phase 1: Initiation</h2>
+    <div id="instruction">Empty everything out to produce sex hormones. Prepare for an electrifying release.</div>
+    <div id="code-box" class="code-display"></div>
+    <div class="controls">
+        <button id="main-btn" onclick="advance()">START PRODUCTION</button>
+    </div>
+    <div class="status" id="step-count">Step 1 of 8</div>
+</div>
+
+<script>
+    const steps = [
+        {
+            title: "Phase 1: Visual Rotation",
+            text: "Concentrate on the private parts in a triangle. Man: rotate vision clockwise then anti-clockwise between vagina and nipples.",
+            btn: "MAINTAIN CONCENTRATION",
+            code: ""
+        },
+        {
+            title: "Phase 2: Reciprocal Focus",
+            text: "Woman: rotate vision clockwise then anti-clockwise between penis, chest, and nipples.",
+            btn: "LOCK FOCUS",
+            code: ""
+        },
+        {
+            title: "Phase 3: The Emptying",
+            text: "Combine thrusting with manual thumping. Squeeze breasts and buttocks simultaneously to reach a hard climax.",
+            btn: "EMPTY ALL FLUIDS",
+            code: ""
+        },
+        {
+            title: "Phase 4: Clitoral Reset",
+            text: "Roll back towards minus 28 degrees. Express love to the clit and vagina to reverse the energy flow.",
+            btn: "INITIATE ROLLBACK",
+            code: ""
+        },
+        {
+            title: "Phase 5: The Refill",
+            text: "Refilling sex fluids instantly using rhythmic squeezes. Use training leg spreads to initiate production.",
+            btn: "START REFILLING",
+            code: "INITIATE CODE: 832858"
+        },
+        {
+            title: "Phase 6: Maximization",
+            text: "Maximize pressing and refill over 100 percent. Increase production of sex hormones through previous sex pumps.",
+            btn: "INCREASE PRODUCTION",
+            code: "INITIATE CODE: 823468"
+        },
+        {
+            title: "Phase 7: Synchronization",
+            text: "Squirt on partner's chest and rub in circular motions, caressing the breasts to complete the cycle.",
+            btn: "FINALIZE REFILL",
+            code: ""
+        },
+        {
+            title: "Completion",
+            text: "System fully refilled. Sex hormone levels maximized. Heat and intensity achieved.",
+            btn: "RESTART CYCLE",
+            code: "PRODUCTION COMPLETE"
+        }
+    ];
+
+    let currentIdx = -1;
+
+    function advance() {
+        currentIdx++;
+        if (currentIdx >= steps.length) currentIdx = 0;
+
+        const s = steps[currentIdx];
+        document.getElementById('phase-title').innerText = s.title;
+        document.getElementById('instruction').innerText = s.text;
+        document.getElementById('main-btn').innerText = s.btn;
+        document.getElementById('step-count').innerText = `Step ${currentIdx + 1} of ${steps.length}`;
+        
+        const codeBox = document.getElementById('code-box');
+        if (s.code) {
+            codeBox.innerText = s.code;
+            codeBox.style.display = 'block';
+        } else {
+            codeBox.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
